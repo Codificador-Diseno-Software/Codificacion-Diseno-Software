@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.GUIController">
+   <children>
+      <BorderPane layoutX="245.0" layoutY="29.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="27.0" prefHeight="369.0" prefWidth="174.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button id="buttonAsignarAlfabeto" mnemonicParsing="false" onAction="#handleButtonAsignarAlfabeto" prefHeight="27.0" prefWidth="184.0" text="Asignar Alfabeto" />
+                              <Button id="buttonTipoSalida" mnemonicParsing="false" onAction="#handleButtonTipoSalida" prefHeight="27.0" prefWidth="184.0" text="Seleccionar Tipo Salida" />
+                              <Button id="buttonCodificar" mnemonicParsing="false" onAction="#handleButtonCodificar" prefHeight="27.0" prefWidth="192.0" text="Codificar" />
+                              <Button id="buttonDecodificar" mnemonicParsing="false" onAction="#handleButtonDecodificar" prefHeight="27.0" prefWidth="229.0" text="Decodificar" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane id="content" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: cyan;">
+                     <children>
+                        <StackPane id="paneStack" prefHeight="369.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane id="paneCodificar" prefHeight="369.0" prefWidth="416.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <ComboBox id="comboTipoCodificacion" layoutX="218.0" layoutY="46.0" prefWidth="150.0">
+                                        <items>
+                                            <FXCollections fx:factory="observableArrayList">
+                                                <String fx:id="1" fx:value="Sustitución Vigenére" />
+                                                <String fx:id="2" fx:value="Transposición" />
+                                                <String fx:id="3" fx:value="Código Telefónico" />
+                                            </FXCollections>
+                                        </items>
+                                    </ComboBox>
+                                    <Label layoutX="62.0" layoutY="51.0" text="Tipo de codificación:" />
+                                    <TextArea id="textCodificación" layoutX="168.0" layoutY="99.0" prefHeight="200.0" prefWidth="200.0" />
+                                    <Label layoutX="62.0" layoutY="99.0" text="Texto:" />
+                                    <Button layoutX="332.0" layoutY="321.0" mnemonicParsing="false" text="Ok" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane id="paneDecodificar" prefHeight="369.0" prefWidth="416.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Label layoutX="80.0" layoutY="114.0" text="Texto:" />
+                                    <TextArea id="textCodificación" layoutX="180.0" layoutY="122.0" prefHeight="200.0" prefWidth="200.0" />
+                                    <Label layoutX="80.0" layoutY="53.0" text="Tipo de decodificación:" />
+                                    <ComboBox id="comboTipoCodificacion" layoutX="230.0" layoutY="48.0" prefWidth="150.0">
+                                       <items>
+                                          <FXCollections fx:factory="observableArrayList">
+                                             <String fx:id="11" fx:value="Sustitución Vigenére" />
+                                             <String fx:id="21" fx:value="Transposición" />
+                                             <String fx:id="31" fx:value="Código Telefónico" />
+                                          </FXCollections>
+                                       </items>
+                                    </ComboBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane id="paneTipoSalida" prefHeight="369.0" prefWidth="416.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <VBox layoutX="145.0" layoutY="85.0" prefHeight="200.0" prefWidth="126.0">
+                                       <children>
+                                          <Button id="buttonTxt" mnemonicParsing="false" prefHeight="27.0" prefWidth="125.0" text="Texto Plano(txt)" />
+                                          <Button id="buttonPDF" mnemonicParsing="false" prefHeight="27.0" prefWidth="165.0" text="PDF" />
+                                          <Button id="buttonXML" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" text="XML" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane id="paneAsignarAlfabeto" prefHeight="369.0" prefWidth="416.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <TextField id="textName" layoutX="155.0" layoutY="35.0" />
+                                    <Label layoutX="39.0" layoutY="40.0" text="Nombre Alfabeto" />
+                                    <Label layoutX="39.0" layoutY="79.0" text="ID Alfabeto" />
+                                    <TextField id="textID" layoutX="155.0" layoutY="74.0" />
+                                    <Label layoutX="39.0" layoutY="111.0" text="Conjunto de símbolos: (separados por espacio)" />
+                                    <TextArea id="textSimbolos" layoutX="139.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" />
+                                    <Button layoutX="357.0" layoutY="308.0" mnemonicParsing="false" text="Ok" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
