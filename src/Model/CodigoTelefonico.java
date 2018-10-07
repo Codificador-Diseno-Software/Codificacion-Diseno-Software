@@ -51,9 +51,9 @@ public class CodigoTelefonico extends Algoritmo {
                 result = result + "*";
             }
             result = result + "*";
-
         }
-        return null;
+        mensaje.setResultados(result);
+        return mensaje;
     }
 
     /**
