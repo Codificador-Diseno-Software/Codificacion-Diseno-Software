@@ -45,10 +45,9 @@ public class CodigoTelefonico extends Algoritmo {
                 for (int x = 0; x < distSimbolos.size(); x++){
                     //Si la letra esta lo construimos
                     if (distSimbolos.get(x).contains(letras[j])){
-                        result = result + Integer.toString(x) + distSimbolos.get(x).indexOf(letras[j]);
+                        result = result + Integer.toString(x+1) + distSimbolos.get(x).indexOf(letras[j]) + " ";
                     }
                 }
-                result = result + "*";
             }
             result = result + "*";
         }
