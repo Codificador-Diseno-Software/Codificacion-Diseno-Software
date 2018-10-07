@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Alfabeto;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -11,7 +13,7 @@ public class DTOAlgoritmos implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
-    private int elAlfabeto;
+    private Alfabeto elAlfabeto;
     private String fraseOrigen;
     private String algoritmoSelec;
     private List salidasSelect;
@@ -21,7 +23,7 @@ public class DTOAlgoritmos implements Serializable {
     public DTOAlgoritmos() {
     }
 
-    public DTOAlgoritmos(int elAlfabeto, String fraseOrigen, String algoritmoSelec, List salidasSelect, String resultados, boolean modoCodificacion) {
+    public DTOAlgoritmos(Alfabeto elAlfabeto, String fraseOrigen, String algoritmoSelec, List salidasSelect, String resultados, boolean modoCodificacion) {
         this.elAlfabeto = elAlfabeto;
         this.fraseOrigen = fraseOrigen;
         this.algoritmoSelec = algoritmoSelec;
@@ -30,11 +32,11 @@ public class DTOAlgoritmos implements Serializable {
         this.modoCodificacion = modoCodificacion;
     }
 
-    public int getElAlfabeto() {
+    public Alfabeto getElAlfabeto() {
         return elAlfabeto;
     }
 
-    public void setElAlfabeto(int elAlfabeto) {
+    public void setElAlfabeto(Alfabeto elAlfabeto) {
         this.elAlfabeto = elAlfabeto;
     }
 

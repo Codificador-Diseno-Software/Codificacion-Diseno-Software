@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.DTOAlgoritmos;
+
 import java.util.*;
 
 /**
@@ -17,12 +19,12 @@ public abstract class Algoritmo {
      * @param mensaje 
      * @return
      */
-    public abstract String codificar(String mensaje);
+    public abstract DTOAlgoritmos codificar(DTOAlgoritmos mensaje);
 
     /**
      * @param mensaje 
      * @return
      */
-    public abstract String decodificar(String mensaje);
+    public abstract DTOAlgoritmos decodificar(DTOAlgoritmos mensaje);
 
 }
