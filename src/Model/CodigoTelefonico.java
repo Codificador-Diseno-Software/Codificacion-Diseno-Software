@@ -61,8 +61,32 @@ public class CodigoTelefonico extends Algoritmo {
      */
     public DTOAlgoritmos decodificar(DTOAlgoritmos mensaje) {
         // TODO implement here
-        int cosas;
-        return null;
+        //Resultado
+        String result = "";
+        //Obtenemos la frase por decodificar
+        String frase = mensaje.getFraseOrigen();
+        String[] palabras = frase.split("*");
+        //Recorremos cada palabra de la frase
+        for (int i = 0; i < palabras.length; i++){
+
+            //Tomamos la primer palabra por decodificar y la recorremos por letra
+            String[] letras = palabras[i].split(" ");
+
+            //Recorremos la palabra por letra
+            for (int j = 0; j < letras.length; j++) {
+
+                //Separamos cada letra para obtener
+                String[] valores = letras[j].split("");
+                //Se le resta uno ya que no se podia empezar en cero
+                int val_i = Integer.parseInt(valores[0]) - 1;
+                int val_j = Integer.parseInt(valores[1]);
+
+                result = result + distSimbolos.get(val_i).get(val_j);
+            }
+            result = result + " ";
+        }
+        mensaje.setResultados(result);
+        return mensaje;
     }
 
     /**
