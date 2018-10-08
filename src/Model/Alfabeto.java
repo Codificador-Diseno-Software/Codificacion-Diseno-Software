@@ -11,7 +11,9 @@ public class Alfabeto implements IValidable {
     /**
      * Default constructor
      */
-    public Alfabeto(String nombre, String[] simbolos) {
+    public Alfabeto(String nombre, ArrayList<String> simbolos) {
+        this.nombre = nombre;
+        this.simbolos = simbolos;
     }
 
 

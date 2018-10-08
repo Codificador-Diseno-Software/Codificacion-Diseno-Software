@@ -65,7 +65,7 @@ public class CodigoTelefonico extends Algoritmo {
         String result = "";
         //Obtenemos la frase por decodificar
         String frase = mensaje.getFraseOrigen();
-        String[] palabras = frase.split("*");
+        String[] palabras = frase.split("\\*");
         //Recorremos cada palabra de la frase
         for (int i = 0; i < palabras.length; i++){
 
@@ -102,20 +102,27 @@ public class CodigoTelefonico extends Algoritmo {
         ArrayList<String> simbolos = actual.getSimbolos();
 
         //Obtenemos el tamano de cada uno de los digitos redondeado para arriba
-        int campos = (int) Math.ceil(simbolos.size() / 10);
+        int campos = (int) Math.ceil(simbolos.size() / 7);
 
         ArrayList<String> listTemp = new ArrayList<String>();
         //Empezamos a recorrer los simbolos para asignar valores
         for (int i = 0; i < simbolos.size(); i++){
+
+            listTemp.add(simbolos.get(i));
             if (listTemp.size() == campos){
                 //Agregamos la listTemp a la final
                 distSimbolos.add(listTemp);
                 //Borramos la listTemp
-                listTemp.clear();
-            }else{
-                //vamos agregando simbolos a la lista final
-                listTemp.add(simbolos.get(i));
+                listTemp = new ArrayList<>();
             }
         }
+    }
+
+    public ArrayList<ArrayList<String>> getDistSimbolos() {
+        return distSimbolos;
+    }
+
+    public void setDistSimbolos(ArrayList<ArrayList<String>> distSimbolos) {
+        this.distSimbolos = distSimbolos;
     }
 }

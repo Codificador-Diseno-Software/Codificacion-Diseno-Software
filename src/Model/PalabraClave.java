@@ -8,7 +8,7 @@ public class PalabraClave extends Algoritmo{
 
     private ArrayList<Integer> valorClave = new ArrayList<Integer>();
     //La palabra clave que se usa para saber como se codifican las cosas
-    private String palabraClave;
+    private String palabraClave = "tango";
 
     /**
      * @param mensaje
@@ -72,7 +72,7 @@ public class PalabraClave extends Algoritmo{
         String result = "";
         //Obtenemos la frase por decodificar
         String frase = mensaje.getFraseOrigen();
-        String[] palabras = frase.split("*");
+        String[] palabras = frase.split("\\*");
 
         //Ahora recorremos cada palabra
         for (int i = 0; i < palabras.length; i++) {
@@ -114,11 +114,11 @@ public class PalabraClave extends Algoritmo{
      * @param unAlfabeto
      * @return
      */
-    public void distribuirAlfabeto(Alfabeto unAlfabeto) {
+    public void distribuirAlfabeto(DTOAlgoritmos unAlfabeto) {
         // TODO implement here
         String[] separada = palabraClave.split("");
         //Alfabeto
-        ArrayList<String> actual = unAlfabeto.getSimbolos();
+        ArrayList<String> actual = unAlfabeto.getElAlfabeto().getSimbolos();
         for (int i = 0; i < separada.length; i++){
             int temp = actual.indexOf(separada[i]) + 1;
             valorClave.add(temp);

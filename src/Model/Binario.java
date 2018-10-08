@@ -66,7 +66,7 @@ public class Binario extends Algoritmo{
         String result = "";
         //Obtenemos la frase por decodificar
         String frase = mensaje.getFraseOrigen();
-        String[] palabras = frase.split("*");
+        String[] palabras = frase.split("\\*");
 
         //Ahora recorremos cada palabra
         for (int i = 0; i < palabras.length; i++){

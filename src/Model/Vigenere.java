@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.DTOAlgoritmos;
+
 import java.util.*;
 
 /**
@@ -17,18 +19,18 @@ public class Vigenere extends Algoritmo {
      * @param mensaje 
      * @return
      */
-    public String codificar(String mensaje) {
+    public DTOAlgoritmos codificar(DTOAlgoritmos mensaje) {
         // TODO implement here
-        return "";
+        return null;
     }
 
     /**
      * @param mensaje 
      * @return
      */
-    public String decodificar(String mensaje) {
+    public DTOAlgoritmos decodificar(DTOAlgoritmos mensaje) {
         // TODO implement here
-        return "";
+        return null;
     }
 
 
