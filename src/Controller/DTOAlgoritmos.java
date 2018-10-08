@@ -19,17 +19,19 @@ public class DTOAlgoritmos implements Serializable {
     private List salidasSelect;
     private String resultados;
     private boolean modoCodificacion;
+    private String palabraClave;
 
     public DTOAlgoritmos() {
     }
 
-    public DTOAlgoritmos(Alfabeto elAlfabeto, String fraseOrigen, String algoritmoSelec, List salidasSelect, String resultados, boolean modoCodificacion) {
+    public DTOAlgoritmos(Alfabeto elAlfabeto, String fraseOrigen, String algoritmoSelec, List salidasSelect, String resultados, boolean modoCodificacion, String palabraClave) {
         this.elAlfabeto = elAlfabeto;
         this.fraseOrigen = fraseOrigen;
         this.algoritmoSelec = algoritmoSelec;
         this.salidasSelect = salidasSelect;
         this.resultados = resultados;
         this.modoCodificacion = modoCodificacion;
+        this.palabraClave = palabraClave;
     }
 
     public Alfabeto getElAlfabeto() {
@@ -79,5 +81,9 @@ public class DTOAlgoritmos implements Serializable {
     public void setModoCodificacion(boolean modoCodificacion) {
         this.modoCodificacion = modoCodificacion;
     }
+
+    public String getPalabraClave() { return palabraClave; }
+
+    public void setPalabraClave(String palabraClave) { this.palabraClave = palabraClave; }
 }
 

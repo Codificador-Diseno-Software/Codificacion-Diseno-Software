@@ -42,6 +42,7 @@ public class Main {
         String frase = "tarea programada";
         prueba.setElAlfabeto(alfa);
         prueba.setFraseOrigen(frase);
+        prueba.setPalabraClave("tango");
 
         CodigoTelefonico testTel = new CodigoTelefonico();
         Binario testBin = new Binario();
@@ -62,6 +63,13 @@ public class Main {
         System.out.println(prueba.getResultados());
         prueba.setFraseOrigen("10011 0 10001 100 0 *1111 10001 1110 110 10001 0 1100 0 11 0 *");
         testBin.decodificar(prueba);
+        System.out.println(prueba.getResultados());
+
+        prueba.setFraseOrigen(frase);
+        prueba = testPal.codificar(prueba);
+        System.out.println(prueba.getResultados());
+        prueba.setFraseOrigen("n b f l p *j s c n g u n o k p *");
+        testPal.decodificar(prueba);
         System.out.println(prueba.getResultados());
 
 

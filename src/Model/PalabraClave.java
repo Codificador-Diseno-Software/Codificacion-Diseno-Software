@@ -8,13 +8,14 @@ public class PalabraClave extends Algoritmo{
 
     private ArrayList<Integer> valorClave = new ArrayList<Integer>();
     //La palabra clave que se usa para saber como se codifican las cosas
-    private String palabraClave = "tango";
 
     /**
      * @param mensaje
      * @return
      */
     public DTOAlgoritmos codificar(DTOAlgoritmos mensaje) {
+        //palabra clave
+        String palabraClave = mensaje.getPalabraClave();
         //Alfabeto
         ArrayList<String> alfabeto = mensaje.getElAlfabeto().getSimbolos();
         //Resultado
@@ -29,15 +30,14 @@ public class PalabraClave extends Algoritmo{
             //Tomamos la primer palabra por codificar y la recorremos por letra
             String[] letras = separada[i].split("");
 
+            int posClave = 0;
             //Recorremos la palabra por letra
             for (int j = 0; j < letras.length; j++){
 
                 //Buscamos cuale es el valor para la letra
 
-                //Posicion de la palabra calve que se debe comparar
-                int posClave = 0;
                 //Esto es para agarrar el campo que se debe si la palabra clave es mas pequena
-                if (j >= valorClave.size()){
+                if (posClave >= palabraClave.length()){
                     posClave = 0;
                 }
 
@@ -80,13 +80,12 @@ public class PalabraClave extends Algoritmo{
             //Separamos cada palabra por letra
             String[] letras = palabras[i].split(" ");
 
+            int posClave = 0;
             //Recorremos todas las letras
             for (int j = 0; j < letras.length; j++){
 
-                //Posicion de la palabra calve que se debe comparar
-                int posClave = 0;
                 //Esto es para agarrar el campo que se debe si la palabra clave es mas pequena
-                if (j >= valorClave.size()){
+                if (posClave >= valorClave.size()){
                     posClave = 0;
                 }
 
@@ -116,6 +115,8 @@ public class PalabraClave extends Algoritmo{
      */
     public void distribuirAlfabeto(DTOAlgoritmos unAlfabeto) {
         // TODO implement here
+        //palabra clave
+        String palabraClave = unAlfabeto.getPalabraClave();
         String[] separada = palabraClave.split("");
         //Alfabeto
         ArrayList<String> actual = unAlfabeto.getElAlfabeto().getSimbolos();
