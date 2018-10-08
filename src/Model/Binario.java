@@ -39,14 +39,8 @@ public class Binario extends Algoritmo{
             //Recorremos la palabra por letra
             for (int j = 0; j < letras.length; j++){
 
-                //Buscamos cuale es el valor para la letra
-                for (int x = 0; x < distSimbolos.size(); x++){
-                    //Si la letra esta lo construimos
-                    if (alfabeto.contains(letras[j])){
-                        int indice = alfabeto.indexOf(letras[j]);
-                        result = result + distSimbolos.get(indice) + " ";
-                    }
-                }
+                int indice = alfabeto.indexOf(letras[j]);
+                result = result + distSimbolos.get(indice) + " ";
             }
             result = result + "*";
         }
