@@ -2,39 +2,29 @@ package Model;
 
 import Controller.DTOAlgoritmos;
 
+import java.awt.*;
 import java.io.*;
 import java.util.*;
 
-/**
- * 
- */
+
 public class EscritorTxt extends Escritor implements IEscritor {
 
-    /**
-     * Default constructor
-     */
+
     public EscritorTxt() {
     }
-//hola
-    /**
-     * @param dto 
-     * @return
-     */
-    public boolean escribir(DTOAlgoritmos dto)
-    {
-        try {
-            FileOutputStream f = new FileOutputStream(new File("archivoTXT.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(dto);
-            o.close();
-            f.close();
-            return true;
-        }catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("Error initializing stream");
-        }
-        return false;
+
+    public boolean escribir(String text, String pathName) throws IOException {
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        fw = new FileWriter("C:\\Users\\Joseph Salas\\IdeaProjects\\Codificacion-Diseno-Software\\src\\Utils\\"+ pathName+".txt");
+        bw =  new BufferedWriter(fw);
+        bw.write(String.valueOf(java.time.LocalDateTime.now()));
+        bw.write(text);
+        bw.flush();
+        bw.close();
+        return  true;
+
+
     }
 
 

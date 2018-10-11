@@ -1,7 +1,11 @@
 package Model;
 
 import Controller.DTOAlgoritmos;
+import com.itextpdf.text.DocumentException;
 
+import java.awt.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -9,11 +13,8 @@ import java.util.*;
  */
 public interface IEscritor {
 
-    /**
-     * @param Dto 
-     * @return
-     */
-    public boolean escribir(DTOAlgoritmos Dto);
+
+    public boolean escribir(String text, String pathName) throws IOException, DocumentException;
 
 
 

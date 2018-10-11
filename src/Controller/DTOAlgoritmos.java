@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Alfabeto;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -11,30 +13,40 @@ public class DTOAlgoritmos implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
-    private int elAlfabeto;
+    private Alfabeto elAlfabeto;
     private String fraseOrigen;
     private String algoritmoSelec;
     private List salidasSelect;
     private String resultados;
     private boolean modoCodificacion;
+    private int cifra;
+    private  String palabraClave;
 
-    public DTOAlgoritmos() {
-    }
 
-    public DTOAlgoritmos(int elAlfabeto, String fraseOrigen, String algoritmoSelec, List salidasSelect, String resultados, boolean modoCodificacion) {
+    public DTOAlgoritmos(Alfabeto elAlfabeto, String fraseOrigen, String algoritmoSelec, List salidasSelect, String resultados, boolean modoCodificacion, int cifra, String palabraClave) {
         this.elAlfabeto = elAlfabeto;
         this.fraseOrigen = fraseOrigen;
         this.algoritmoSelec = algoritmoSelec;
         this.salidasSelect = salidasSelect;
         this.resultados = resultados;
         this.modoCodificacion = modoCodificacion;
+        this.cifra = cifra;
+        this.palabraClave = palabraClave;
     }
 
-    public int getElAlfabeto() {
+    public String getPalabraClave() {
+        return palabraClave;
+    }
+
+    public void setPalabraClave(String palabraClave) {
+        this.palabraClave = palabraClave;
+    }
+
+    public Alfabeto getElAlfabeto() {
         return elAlfabeto;
     }
 
-    public void setElAlfabeto(int elAlfabeto) {
+    public void setElAlfabeto(Alfabeto elAlfabeto) {
         this.elAlfabeto = elAlfabeto;
     }
 
@@ -76,6 +88,14 @@ public class DTOAlgoritmos implements Serializable {
 
     public void setModoCodificacion(boolean modoCodificacion) {
         this.modoCodificacion = modoCodificacion;
+    }
+
+    public int getCifra() {
+        return cifra;
+    }
+
+    public void setCifra(int cifra) {
+        this.cifra = cifra;
     }
 }
 

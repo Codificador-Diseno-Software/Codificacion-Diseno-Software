@@ -4,31 +4,21 @@ import Model.Alfabeto;
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class DaoAlfabetos implements IValidable {
 
     ArrayList<Alfabeto> listaAlfabetos;
 
-    /**
-     * Default constructor
-     */
     public DaoAlfabetos() {
         listaAlfabetos = new ArrayList<Alfabeto>();
     }
 
-    /**
-     * 
-     */
+
     public void ACME() {
         // TODO implement here
     }
 
-    /**
-     * @param obj 
-     * @return
-     */
+
     public boolean validar(Object obj) {
         // TODO implement here
         return false;

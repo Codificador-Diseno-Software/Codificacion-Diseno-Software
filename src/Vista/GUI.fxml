@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.collections.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.GUIController">
+<AnchorPane prefHeight="559.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.GUIController">
    <children>
       <BorderPane layoutX="245.0" layoutY="29.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <MenuBar BorderPane.alignment="CENTER">
+            <MenuBar prefWidth="600.0" BorderPane.alignment="CENTER">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
@@ -33,20 +44,8 @@
             </MenuBar>
          </top>
          <center>
-            <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <SplitPane prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <VBox layoutX="14.0" layoutY="27.0" prefHeight="369.0" prefWidth="174.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Button id="buttonAsignarAlfabeto" mnemonicParsing="false" onAction="#handleButtonAsignarAlfabeto" prefHeight="27.0" prefWidth="184.0" text="Asignar Alfabeto" />
-                              <Button id="buttonTipoSalida" mnemonicParsing="false" onAction="#handleButtonTipoSalida" prefHeight="27.0" prefWidth="184.0" text="Seleccionar Tipo Salida" />
-                              <Button id="buttonCodificar" mnemonicParsing="false" onAction="#handleButtonCodificar" prefHeight="27.0" prefWidth="192.0" text="Codificar" />
-                              <Button id="buttonDecodificar" mnemonicParsing="false" onAction="#handleButtonDecodificar" prefHeight="27.0" prefWidth="229.0" text="Decodificar" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
                 <AnchorPane id="content" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: cyan;">
                      <children>
                         <StackPane id="paneStack" prefHeight="369.0" prefWidth="416.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -95,15 +94,33 @@
                                     </VBox>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane id="paneAsignarAlfabeto" prefHeight="369.0" prefWidth="416.0" style="-fx-background-color: white;">
+                              <AnchorPane id="paneAsignarAlfabeto" prefHeight="499.0" prefWidth="765.0" style="-fx-background-color: white;">
                                  <children>
-                                    <TextField id="textName" layoutX="155.0" layoutY="35.0" />
-                                    <Label layoutX="39.0" layoutY="40.0" text="Nombre Alfabeto" />
-                                    <Label layoutX="39.0" layoutY="79.0" text="ID Alfabeto" />
-                                    <TextField id="textID" layoutX="155.0" layoutY="74.0" />
-                                    <Label layoutX="39.0" layoutY="111.0" text="Conjunto de símbolos: (separados por espacio)" />
-                                    <TextArea id="textSimbolos" layoutX="139.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" />
-                                    <Button layoutX="357.0" layoutY="308.0" mnemonicParsing="false" text="Ok" />
+                                    <Label layoutX="39.0" layoutY="40.0" text="Alfabeto" />
+                                    <Label layoutX="491.0" layoutY="108.0" text="Escribir o generar frase" />
+                                    <TextField id="textID" fx:id="fraseOrigen" layoutX="491.0" layoutY="133.0" prefHeight="45.0" prefWidth="159.0" />
+                                    <ComboBox fx:id="comboAlfabeto" layoutX="112.0" layoutY="36.0" prefHeight="25.0" prefWidth="78.0" />
+                                    <Label layoutX="33.0" layoutY="274.0" text="Tipos de Algoritmo" />
+                                    <ListView fx:id="listAlgoritmos" layoutX="151.0" layoutY="282.0" prefHeight="93.0" prefWidth="158.0" />
+                                    <Label layoutX="47.0" layoutY="394.0" text="Tipo de Salida" />
+                                    <ListView fx:id="tipoSalida" layoutX="152.0" layoutY="394.0" prefHeight="75.0" prefWidth="162.0" />
+                                    <Label layoutX="491.0" layoutY="202.0" text="Resultado" />
+                                    <TextArea fx:id="resultado" layoutX="484.0" layoutY="232.0" prefHeight="156.0" prefWidth="268.0" />
+                                    <CheckBox fx:id="selectedCod" layoutX="486.0" layoutY="403.0" mnemonicParsing="false" text="Codificar/Decodificar" />
+                                    <Button fx:id="btnIniciar" layoutX="489.0" layoutY="425.0" mnemonicParsing="false" text="Aceptar" />
+                                    <Label layoutX="491.0" layoutY="48.0" text="Generar Frase" />
+                                    <ComboBox fx:id="comboGenerarFrase" layoutX="491.0" layoutY="67.0" prefWidth="150.0" />
+                                    <Button layoutX="684.0" layoutY="156.0" mnemonicParsing="false" text="Generar" />
+                                    <Label layoutX="22.0" layoutY="211.0" text="Cifra para Vigenere" />
+                                    <Spinner fx:id="cifraVigenere" layoutX="30.0" layoutY="241.0" prefHeight="25.0" prefWidth="85.0" />
+                                    <Label layoutX="159.0" layoutY="211.0" text="Palabra Clave" />
+                                    <TextField fx:id="palabraClave" layoutX="159.0" layoutY="241.0" />
+                                    <Button fx:id="btnCargarAlf" layoutX="218.0" layoutY="67.0" mnemonicParsing="false" text="Cargar nuevo alfabeto" />
+                                    <Label layoutX="24.0" layoutY="71.0" text="Ingrese nombre de nuevo alfabeto" />
+                                    <TextField fx:id="nombreAlfabeto" layoutX="22.0" layoutY="96.0" />
+                                    <Button fx:id="btnGuardar" layoutX="639.0" layoutY="425.0" mnemonicParsing="false" text="Guardar" />
+                                    <Label layoutX="713.0" layoutY="62.0" text="Caracteres" />
+                                    <Spinner fx:id="spinnerCaracteres" layoutX="687.0" layoutY="84.0" prefHeight="25.0" prefWidth="74.0" />
                                  </children>
                               </AnchorPane>
                            </children>
