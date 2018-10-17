@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class GUIController {
@@ -62,6 +63,8 @@ public class GUIController {
     private  TextArea resultado;
     @FXML
     private  Button btnGuardar;
+    @FXML
+    private  Button botonGenerarFrase;
 
     private  ArrayList<DTOAlgoritmos> listDTO = new ArrayList<DTOAlgoritmos>();
 
@@ -78,7 +81,7 @@ public class GUIController {
         tipoSalida.getItems().addAll(".txt", ".xml", ".pdf");
         tipoSalida.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        listAlgoritmos.getItems().addAll("Vigenere", "Código telefónico", "Binario", "Transpocisión", "Palabra Clave");
+        listAlgoritmos.getItems().addAll("Vigenere", "Código telefónico", "Binario", "Transposiión", "Palabra Clave");
         listAlgoritmos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         ObservableList<String> frases = FXCollections.observableArrayList("No consecutivos no duplicados", "Si consecutivos no duplicados", "Si consecutivos si duplicados", "otro");
@@ -163,14 +166,24 @@ public class GUIController {
                         System.out.println("Hola");
                     }
             }
+        });
 
+        botonGenerarFrase.setOnAction(event ->
+        {
+            String output = (String) comboGenerarFrase.getValue();
+            System.out.println(output);
 
+            String index = (String) comboAlfabeto.getValue();
+
+            ArrayList<String> al = new ArrayList<>(Arrays.asList("b", "a", "j"));
+            int cantidad = (int) spinnerCaracteres.getValue();
+
+            fraseOrigen.setText(controlador.generarFrase(output, alfabetoSelect(comboAlfabeto.getValue().toString()), cantidad));
         });
 
     }
 
-    private void updateAlf()
-    {
+    private void updateAlf() {
         ObservableList<String> alfabetos = FXCollections.observableArrayList();
         ArrayList<Alfabeto> alfabetos1 = controlador.cargarAlfabetos();
         for (int i = 0; i< alfabetos1.size();i++)
@@ -179,6 +192,18 @@ public class GUIController {
         }
         comboAlfabeto.setValue(alfabetos.get(0));
         comboAlfabeto.setItems(alfabetos);
+    }
+
+    public ArrayList<String> alfabetoSelect(String nombreAlf)
+    {
+        for(int i =0; i< controlador.cargarAlfabetos().size(); i++)
+        {
+            if (controlador.cargarAlfabetos().get(i).getNombre().equals(nombreAlf))
+            {
+                return controlador.cargarAlfabetos().get(i).getSimbolos();
+            }
+        }
+        return null;
     }
 
 

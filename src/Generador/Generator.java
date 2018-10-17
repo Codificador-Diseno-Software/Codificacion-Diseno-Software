@@ -1,6 +1,8 @@
+package Generador;
+
 import java.util.ArrayList;
 
-public class Generador {
+public class Generator {
     FraseBuilder builder;
 
     public void setBuilder(int tipo, ArrayList<String> alfabeto) {
@@ -17,5 +19,12 @@ public class Generador {
                 this.builder = new ConsecutivosDuplicados(alfabeto);
                 break;
         }
+    }
+
+    public String generar(int cantidad){
+        String res;
+        builder.generarFrase(cantidad);
+        res = builder.getFrase();
+        return res;
     }
 }
