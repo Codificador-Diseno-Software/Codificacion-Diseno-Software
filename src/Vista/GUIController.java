@@ -167,12 +167,6 @@ public class GUIController {
 
         });
 
-
-
-
-
-
-
     }
 
     private void updateAlf()
@@ -185,7 +179,6 @@ public class GUIController {
         }
         comboAlfabeto.setValue(alfabetos.get(0));
         comboAlfabeto.setItems(alfabetos);
-
     }
 
 
