@@ -1,0 +1,20 @@
+Vigenere
+tarea programada 
+vdthc ruqjtdodfd 
+23
+Código telefónico
+tarea programada 
+71 161 10 100 62 152 21 111 10 100 *60 150 62 152 52 142 30 120 62 152 10 100 50 140 10 100 20 110 10 100 *
+23
+Binario
+tarea programada 
+10011 0 10001 100 0 *1111 10001 1110 110 10001 0 1100 0 11 0 *
+23
+Transpocisión
+tarea programada 
+aerat adamargorp 
+23
+Palabra Clave
+tarea programada 
+a p c f i *x f   h z p y b l p *
+23

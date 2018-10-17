@@ -1,5 +1,6 @@
 package Controller;
 
+import Generador.Generator;
 import Model.*;
 import com.itextpdf.text.DocumentException;
 
@@ -86,7 +87,7 @@ public class Controlador implements IValidable {
                 {
                     vigenere.decodificar(elDTO);
                 }
-        }else if(elDTO.getAlgoritmoSelec()== "Transpocisión")
+        }else if(elDTO.getAlgoritmoSelec()== "Transposición")
         {
             if (elDTO.isModoCodificacion())
             {
@@ -132,6 +133,24 @@ public class Controlador implements IValidable {
     private void escribir(DTOAlgoritmos DTO) {
         // TODO implement here
         return;
+    }
+
+
+    public String generarFrase(String tipo, ArrayList<String> alfabeto, int cantidad){
+        String ret;
+        Generator gen = new Generator();
+        switch (tipo){
+            case "Si consecutivos no duplicados":
+                gen.setBuilder(2, alfabeto);
+                break;
+            case "No consecutivos no duplicados":
+                gen.setBuilder(1, alfabeto);
+                break;
+            case "Si consecutivos si duplicados":
+                gen.setBuilder(3, alfabeto);
+                break;
+        }
+        return gen.generar(cantidad);
     }
 
 
