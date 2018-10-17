@@ -63,6 +63,7 @@ public class GUIController {
     @FXML
     private  Button btnGuardar;
 
+
     private  ArrayList<DTOAlgoritmos> listDTO = new ArrayList<DTOAlgoritmos>();
 
 
